@@ -1,6 +1,7 @@
 import React from 'react';
-import {Box, Typography} from '@material-ui/core';
+import {Box} from '@material-ui/core';
 import useStyles from './style.js';
+import Text from '../Text/index.js';
 
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
   return(
     <Box  className={classes.root}>
       <div className={classes.flex}>
-      <Typography variant="h2">Book Finder </Typography>
+      <Text variant="h2">Book Finder </Text>
 
       </div>
     </Box>

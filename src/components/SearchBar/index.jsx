@@ -5,7 +5,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import {getBooks} from '../../service/booksService';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
-
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {useDispatch} from 'react-redux'
 
 
@@ -19,14 +20,14 @@ const SearchBar = () =>  {
 
   const dispatch = useDispatch();
 
-  const [qtd, setQtd] = useState(10);
+  const [index, setIndex] = useState(0);
 
 
  
 
   function loadBooks(){
     try{
-      getBooks(value, dispatch, qtd);
+      getBooks(value, dispatch, index);
      }catch(error){
        console.log(error);
      }
@@ -36,15 +37,15 @@ const SearchBar = () =>  {
     if(value !== ''){
       loadBooks();
     }
-  },[qtd])
+  },[index])
 
   function nextPage(){
-    setQtd(qtd+10);
+    setIndex(index+10);
   }
 
   function prevPage(){
-    if(qtd-10 > 0){
-      setQtd(qtd - 10);
+    if(index-10 > 0){
+      setIndex(index - 10);
     }
     
   }
@@ -56,7 +57,7 @@ const SearchBar = () =>  {
  
     setTimer(setTimeout(()=>{
       if(value !== ''){
-        setQtd(10);
+        setIndex(10);
         loadBooks();
     }
     }, 1000))
@@ -65,7 +66,7 @@ const SearchBar = () =>  {
 
   return(
     <Box className={classes.root}>
-            <IconButton color="primary" onClick={prevPage}>prev</IconButton>
+            <IconButton color="primary" onClick={prevPage}><ArrowBackIcon/></IconButton>
 
       <TextField
         className={classes.field}
@@ -82,7 +83,7 @@ const SearchBar = () =>  {
         }}
       />
 
-      <IconButton color="primary" onClick={nextPage}>Next</IconButton>
+      <IconButton color="primary" onClick={nextPage}><ArrowForwardIcon/></IconButton>
       
     </Box>
   )
