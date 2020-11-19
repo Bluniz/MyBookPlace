@@ -1,12 +1,17 @@
 import api from './api';
+import bookActions from '../actions/bookActions';
 
+export function getBooks(term, dispatch, qtd){
+  return api.get(`/volumes?q=${term}&maxResults=${qtd}`).then(response=>{
+    console.log(response)
+    if(response === undefined || response.data.totalItems === 0){
+      dispatch(bookActions.notFoundBooks(true))
+    } else {
+      dispatch(bookActions.getBooks(response.data.items))
 
-
-export function getBooks(term){
-
-  return api.get(`/volumes?q=${term}`).then(response=>{
-    console.log('data')
-    console.log(response.data.items);
+    }
+    
+     
   })
 };
 

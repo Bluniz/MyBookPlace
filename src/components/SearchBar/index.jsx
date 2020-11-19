@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {TextField, Box} from '@material-ui/core';
 import useStyles from './style';
 import SearchIcon from '@material-ui/icons/Search';
 import {getBooks} from '../../service/booksService';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
 
+import {useDispatch} from 'react-redux'
 
 
 const SearchBar = () =>  {
@@ -15,19 +17,47 @@ const SearchBar = () =>  {
 
   const [timer, setTimer] = useState(null);
 
+  const dispatch = useDispatch();
+
+  const [qtd, setQtd] = useState(10);
+
+
+ 
+
+  function loadBooks(){
+    try{
+      getBooks(value, dispatch, qtd);
+     }catch(error){
+       console.log(error);
+     }
+  }
+
+  useEffect(()=>{
+    if(value !== ''){
+      loadBooks();
+    }
+  },[qtd])
+
+  function nextPage(){
+    setQtd(qtd+10);
+  }
+
+  function prevPage(){
+    if(qtd-10 > 0){
+      setQtd(qtd - 10);
+    }
+    
+  }
 
 
    function handleChange(event){
-     clearTimeout(timer);
+    clearTimeout(timer);
     setValue(event.target.value);
-
+ 
     setTimer(setTimeout(()=>{
       if(value !== ''){
-        try{
-         getBooks(value);
-        }catch(error){
-          console.log(error);
-        }
+        setQtd(10);
+        loadBooks();
     }
     }, 1000))
   }
@@ -35,6 +65,8 @@ const SearchBar = () =>  {
 
   return(
     <Box className={classes.root}>
+            <IconButton color="primary" onClick={prevPage}>prev</IconButton>
+
       <TextField
         className={classes.field}
         variant="outlined"
@@ -49,6 +81,8 @@ const SearchBar = () =>  {
           ),
         }}
       />
+
+      <IconButton color="primary" onClick={nextPage}>Next</IconButton>
       
     </Box>
   )

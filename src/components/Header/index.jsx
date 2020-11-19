@@ -9,7 +9,7 @@ const Home = () => {
   return(
     <Box  className={classes.root}>
       <div className={classes.flex}>
-      <Typography variant="h2">Book Finder</Typography>
+      <Typography variant="h2">Book Finder </Typography>
 
       </div>
     </Box>
