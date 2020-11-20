@@ -44,7 +44,7 @@ const SearchBar = () =>  {
   }
 
   function prevPage(){
-    if(index-10 > 0){
+    if(index-10 >= 0){
       setIndex(index - 10);
     }
     
@@ -57,8 +57,9 @@ const SearchBar = () =>  {
  
     setTimer(setTimeout(()=>{
       if(value !== ''){
-        setIndex(10);
         loadBooks();
+        setIndex(10);
+
     }
     }, 1000))
   }
