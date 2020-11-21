@@ -1,22 +1,29 @@
 import api from './api';
-import bookActions from '../actions/bookActions';
+import bookActions from '../actions/booksActions';
+import bookAction from '../actions/bookActions';
+import loadingActions from '../actions/loadingActions';
 
-export function getBooks(term, dispatch, index){
-  return api.get(`/volumes?q=${term}&startIndex=${index}`).then(response=>{
-    console.log(response)
+//&langRestrict=pt
+export function getBooks(term, dispatch, index) {
+  dispatch(loadingActions.startLoading('searchList'));
+  return api.get(`/volumes?q=${term}&maxResults=10&startIndex=${index}&projection=full`).then(response=>{
     if(response === undefined || response.data.totalItems === 0){
       dispatch(bookActions.notFoundBooks(true))
     } else {
-      dispatch(bookActions.getBooks(response.data.items))
-
+      dispatch(bookActions.getBooks(response.data))
     }
     
-     
-  })
+    dispatch(loadingActions.finishLoading('searchList'));
+  }).catch(error=> console.log(error))
 };
 
 
-export function getBook(id){
-
-  return api.get(`/volumes/${id}`)
+export function getBook(id, dispatch) {
+        dispatch(loadingActions.startLoading('bookDetail'))
+  return api.get(`/volumes/${id}?projection=full`).then(response=>{
+    if (response) {
+       dispatch(bookAction.getBook(response.data.volumeInfo))
+       dispatch(loadingActions.finishLoading('bookDetail'));
+    }
+  }).catch(error => console.log(error))
 }

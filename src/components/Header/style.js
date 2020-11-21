@@ -13,6 +13,11 @@ const useStyles = makeStyles(()=>({
     flexDirection: 'column',
     margin: 10,
   },
+  title: {
+    textDecoration: 'none',
+    color: 'black',
+    fontWeight: 700
+  }
   
 }))
 
