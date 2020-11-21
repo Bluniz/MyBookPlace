@@ -1,10 +1,14 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import books from './books';
+import book from './book';
+import loading from './loading'
 
 //! Combina todas as stores
 const reducer = combineReducers({
-  books
+  books,
+  book,
+  loading,
 })
 
 

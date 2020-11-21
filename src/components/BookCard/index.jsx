@@ -6,8 +6,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import {Link} from 'react-router-dom';
 
-const BookCard = ({title, image}) => {
+const BookCard = ({title, image, bookId}) => {
   const classes = useStyles();
   return(
    
@@ -21,7 +22,7 @@ const BookCard = ({title, image}) => {
           </Grid>
           <Grid item sm={9} md={9}>
           <CardHeader title={title}/>
-         <Button variant="outlined" className={classes.button} color="primary">Ver mais</Button> 
+         <Button variant="outlined" component={Link} to={`/book/${bookId}`} className={classes.button} color="primary">Ver mais</Button> 
           </Grid>
         </Grid>
       </CardActionArea>
