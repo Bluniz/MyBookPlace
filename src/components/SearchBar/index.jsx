@@ -66,6 +66,8 @@ const SearchBar = () =>  {
       <SearchIcon />
             </InputAdornment>
           ),
+          className: classes.input,
+         
         }}
       />
 

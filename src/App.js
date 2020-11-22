@@ -11,7 +11,6 @@ function App() {
         <Provider store={store}>
         <BrowserRouter>
           <CssBaseline/>
-            <Header />
              <Routes/>
             </BrowserRouter>
             </Provider>
