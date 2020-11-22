@@ -3,7 +3,6 @@ import {Switch, Route} from 'react-router-dom';
 import SearchPage from './pages/SearchPage';
 import BookDetailPage from './pages/BookDetailPage';
 import HomePage from './pages/HomePage/index';
-import Header from './components/Header/style';
 
 const Routes = () => {
   return (

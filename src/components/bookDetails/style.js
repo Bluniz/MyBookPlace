@@ -9,18 +9,21 @@ const useStyles = makeStyles(()=> ({
   
   margin: {
     margin: "10px",
-    color: '#f5f5f5'
+    color: '#122230',
+    fontWeight: 'bold',
   },
   title: {
     margin: '10px',
-    marginTop: '20px'
+    marginTop: '20px',
+    fontWeight: 'bold',
   },
   
   card: {
     minWidth: '90vw',
-    color: '#f5f5f5',
+    color: '#122230',
     background: 'transparent',
-    borderColor: '#f5f5f5'
+    borderColor: '#122230',
+    borderWidth: 2,
   },
 
   img: {
@@ -30,14 +33,14 @@ const useStyles = makeStyles(()=> ({
   },
 
   button: {
-     color: '#f5f5f5',
+     color: '#122230',
     marginBottom: '10px',
     marginTop: '10px',
-    borderColor: '#f5f5f5',
+    borderColor: '#122230',
 
      '&:hover': {
-       background: '#f5f5f5',
-       color: '#122230',
+       background: '#122230',
+       color: '#f5f5f5',
        borderColor: '#122230'
      }
    },

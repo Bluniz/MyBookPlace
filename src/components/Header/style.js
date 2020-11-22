@@ -2,8 +2,8 @@ import {makeStyles} from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles(()=>({
-  root:{
-    background: '#f5f5f5',
+  root: {
+    background: 'linear-gradient(to left, #122230 0%,#192d3e 100%)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -22,7 +22,7 @@ const useStyles = makeStyles(()=>({
   },
   title: {
     textDecoration: 'none',
-    color: 'black',
+    color: '#f5f5f5',
     fontWeight: 700,
     marginLeft: 10,
   },

@@ -1,6 +1,5 @@
 import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Header from './components/Header/index.jsx';
 import {BrowserRouter} from 'react-router-dom';
 import Routes from './routes';
 import {Provider} from 'react-redux';

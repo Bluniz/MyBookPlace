@@ -3,7 +3,6 @@ import SearchBar from '../../components/SearchBar/index.jsx';
 import BookCard from '../../components/BookCard/index.jsx';
 import {useSelector} from 'react-redux';
 import noImage from '../../assets/no-image.jpg';
-import Container from '@material-ui/core/Container';
 import Alert from '@material-ui/lab/Alert';
 import {CircularProgress, Box} from '@material-ui/core';
 import Header from '../../components/Header/index.jsx';

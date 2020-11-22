@@ -42,12 +42,12 @@ const SearchBar = () =>  {
    function handleChange(event){
     clearTimeout(timer);
     setValue(event.target.value);
- 
+   if(value !== '' && value.length > 1){
     setTimer(setTimeout(()=>{
-      if(value !== ''){
         loadBooks();
-    }
     }, 1000))
+       }
+
   }
 
 
