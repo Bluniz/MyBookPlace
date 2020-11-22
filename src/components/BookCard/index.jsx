@@ -7,7 +7,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
-import Text from '../Text/index';
 
 const BookCard = ({title, image, bookId, subtitle}) => {
   const classes = useStyles();

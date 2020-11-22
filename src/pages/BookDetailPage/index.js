@@ -1,14 +1,16 @@
 import React, {useEffect} from 'react';
 import {getBook} from '../../service/booksService';
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { Container, Box} from '@material-ui/core';
+import { Container, Box, IconButton} from '@material-ui/core';
 import {formatDate} from '../../utils/utils';
 import noImage from '../../assets/no-image.jpg'
 import BookDetails from '../../components/bookDetails/index';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import useStyles from './style';
-import Header from '../../components/Header/index.jsx'
+import Header from '../../components/Header/index.jsx';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+
 const BookDetailPage = () => {
 
   const classes = useStyles()
@@ -16,20 +18,25 @@ const BookDetailPage = () => {
   const { book } = useSelector(state => state.book);
   const { bookDetail } = useSelector(state => state.loading);
   const dispatch = useDispatch();
-  
-  console.log(bookDetail);
+  const history = useHistory();
   useEffect(() => {
     getBook(id, dispatch);
   }, [id])
+
+  function handleGoBack() {
+    history.goBack();
+  }
   
-  // TODO REMOVER STYLE FIXO DA DIV DO SPINNER
   return (
     <div className={classes.dontOverflow}>
      <Header/>
     <Box className={classes.root}>
-      <Container maxWidth="lg">
+        <Container maxWidth="lg">
+          <IconButton className={classes.backButton} onClick={handleGoBack}>
+            <ArrowBackIcon/>
+          </IconButton>
       {bookDetail
-        ? (<div style={{width: '100vw', heigth: '100vh',  display: 'flex',justifyContent: 'center', marginTop: '20%'}}><CircularProgress /></div>  )
+            ? (<div className={classes.spinnerContainer}><CircularProgress className={classes.spinner}/></div>  )
           : (
         <BookDetails
         title={book.title}

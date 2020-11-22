@@ -8,23 +8,23 @@ const useStyles = makeStyles(()=>({
     alignItems: 'left',
     justifyContent: 'flex-start',
     margin: 10,
-    color: '#f5f5f5',
+    color: '#122230',
     background: 'transparent',
-    borderColor: '#f5f5f5',
+    borderColor: '#122230',
   },
   container: {
     display: 'flex',
   },
 
   button: {
-     color: '#f5f5f5',
+     color: '#122230',
     margin: 10,
-    borderColor: '#f5f5f5',
+    borderColor: '#122230',
 
      '&:hover': {
-       background: '#f5f5f5',
-       color: '#122230',
-       borderColor: '#122230'
+       background: '#122230',
+       color: '#f5f5f5',
+       borderColor: '#f5f5f5'
      }
    },
 
@@ -35,7 +35,7 @@ const useStyles = makeStyles(()=>({
   },
 
   subheader: {
-    color: '#f5f5f5'
+    color: '#122230'
   }
 }))
 

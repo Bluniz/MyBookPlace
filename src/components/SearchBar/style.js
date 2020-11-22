@@ -15,8 +15,8 @@ import {makeStyles} from '@material-ui/core/styles';
     
   },
   input: {
-    borderColor: '#f5f5f5',
-    color: '#f5f5f5',
+    borderColor: '#122230',
+    color: '#122230',
    },
    
 }))
