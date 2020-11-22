@@ -2,14 +2,16 @@ import React, {useEffect} from 'react';
 import {getBook} from '../../service/booksService';
 import {useParams} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { Container} from '@material-ui/core';
+import { Container, Box} from '@material-ui/core';
 import {formatDate} from '../../utils/utils';
 import noImage from '../../assets/no-image.jpg'
 import BookDetails from '../../components/bookDetails/index';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import useStyles from './style';
+import Header from '../../components/Header/index.jsx'
 const BookDetailPage = () => {
 
+  const classes = useStyles()
   const {id} = useParams();
   const { book } = useSelector(state => state.book);
   const { bookDetail } = useSelector(state => state.loading);
@@ -21,9 +23,11 @@ const BookDetailPage = () => {
   }, [id])
   
   // TODO REMOVER STYLE FIXO DA DIV DO SPINNER
-  return(
-    <Container maxWidth="lg" >
-
+  return (
+    <div className={classes.dontOverflow}>
+     <Header/>
+    <Box className={classes.root}>
+      <Container maxWidth="lg">
       {bookDetail
         ? (<div style={{width: '100vw', heigth: '100vh',  display: 'flex',justifyContent: 'center', marginTop: '20%'}}><CircularProgress /></div>  )
           : (
@@ -40,8 +44,10 @@ const BookDetailPage = () => {
             
             
             )
-      }
-    </Container>
+        }
+          </Container>
+      </Box>
+      </div>
   )
 }
 

@@ -12,11 +12,13 @@ import {makeStyles} from '@material-ui/core/styles';
   field: {
     width: '60%',
     alignText: 'center',
-
+    
   },
   input: {
-    background: '#f5f5f5',
-  },
+    borderColor: '#f5f5f5',
+    color: '#f5f5f5',
+   },
+   
 }))
 
 

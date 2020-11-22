@@ -1,58 +1,34 @@
 import React from 'react';
-import SearchBar from '../../components/SearchBar/index.jsx';
-import BookCard from '../../components/BookCard/index.jsx';
-import {useSelector} from 'react-redux';
-import noImage from '../../assets/no-image.jpg';
-import Container from '@material-ui/core/Container';
-import Alert from '@material-ui/lab/Alert';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import {Grid, Button } from '@material-ui/core';
+import useStyles from './style';
+import logo from '../../assets/estante.svg';
+import Text from '../../components/Text/index';
+import { Link } from 'react-router-dom';
+import SearchIcon from '@material-ui/icons/Search';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+
+
 
 const HomePage = () => {
+  const classes = useStyles();
 
-  const {books,notFound} = useSelector(state => state.books);
-  const { searchList } = useSelector(state => state.loading);
-  
 
-  return(
-    <>
-    <SearchBar />
-     <Container maxWidth="lg" style={{width: '100vw', display: 'flex', alignItems: 'center', flexDirection: 'column'}} >
-      
-        
-        {searchList
-          ? (<CircularProgress />)
-            : (
-              <>
-                {books.map(book => {
-                  return(
-                     <BookCard 
-                       key={book.id}
-                       title={book.volumeInfo.title}
-                       image={book.volumeInfo.imageLinks? book.volumeInfo.imageLinks.thumbnail : noImage}
-                      bookId={book.id}
-                      />
-      )
-    })}
+  return (
+      <Grid container  className={classes.root}>
+        <Grid item sm={3} md={3}>
+        <img className={classes.img}src={logo} alt="logo"/>
+        </Grid>
+      <Grid item sm={5} md={5}>
+        <Text variant="h2">MyBookPlace</Text>
+          <Text variant="subtitle2"> Pesquise e favorite seus livros :D</Text>
+        <Button className={classes.buttonSearch} component={Link} to="/search"  variant="outlined"> <SearchIcon/> Pesquisar</Button>
+          <Button className={classes.buttonFavorite}  variant="outlined"><StarBorderIcon/> Meus favoritos</Button>
+          
+        </Grid>
+      </Grid>
 
-              </>
-          )}
-       
-      
-        
-    {notFound && (
-      <Alert severity="error">Dados não encontrados :/</Alert>
-    )}
-
-        {books.length === 0 && !searchList && !notFound && (
-          <Alert severity="info">Bem vindo :D, utilize a barra acima para pesquisar algum livro!</Alert>
-        )}
-</Container>
-     
-    </>
   )
 }
 
 
-
-
-export default HomePage;
+export default HomePage
