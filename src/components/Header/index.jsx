@@ -15,7 +15,7 @@ const Header = () => {
          <div className={classes.container}>
          <div className={classes.titleContainer}>
         <img src={logo} alt="logo" className={classes.image}/>
-        <Text component={Link} to="/" variant="h4" className={classes.title}>Book Finder </Text>
+        <Text component={Link} to="/" variant="h4" className={classes.title}>MyBookPlace</Text>
           </div>
           <div className={classes.searchBar}>
              <SearchBar/>
