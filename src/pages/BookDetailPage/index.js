@@ -27,7 +27,6 @@ const BookDetailPage = () => {
     history.goBack();
   }
 
-  console.log(book);
   
   return (
     <div className={classes.container}>
