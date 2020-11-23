@@ -6,16 +6,17 @@ const useStyles = makeStyles(()=>({
      display: 'flex',
      flexDirection: 'column',
      color: '#122230',
+     width: '100vw',
+     
    },
    
   dontOverflow: {
-    overflow: 'hidden',
     display: 'flex',
     flexDirection: 'column',
   },
+
   backButton: {
     color: '#122230',
-
   },
   
   spinner: {
@@ -23,6 +24,8 @@ const useStyles = makeStyles(()=>({
 
   },
 
+  container: {
+  },
   spinnerContainer: {
     width: '100vw',
     heigth: '100vh',

@@ -26,10 +26,13 @@ const BookDetailPage = () => {
   function handleGoBack() {
     history.goBack();
   }
+
+  console.log(book);
   
   return (
-    <div className={classes.dontOverflow}>
-     <Header/>
+    <div className={classes.container}>
+      <Header/>
+
     <Box className={classes.root}>
         <Container maxWidth="lg">
           <IconButton className={classes.backButton} onClick={handleGoBack}>
@@ -46,7 +49,9 @@ const BookDetailPage = () => {
         publisher={book?.publisher}
         publishedDate={book.publishedDate? formatDate(book.publishedDate): '' }
         pageCount={book.printedPageCount}
-        description={book.description? book.description : 'Este livro não possui descrição'}
+        description={book.description ? book.description : 'Este livro não possui descrição'}
+        rating={book?.averageRating}
+        googleLink={book.infoLink}        
       />
             
             
@@ -54,6 +59,7 @@ const BookDetailPage = () => {
         }
           </Container>
       </Box>
+
       </div>
   )
 }

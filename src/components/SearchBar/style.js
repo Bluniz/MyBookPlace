@@ -15,11 +15,17 @@ import {makeStyles} from '@material-ui/core/styles';
     
   },
   input: {
-    borderColor: '#122230',
     color: '#122230',
+    background: '#f5f5f5',
+
    },
+   searchButton: {
+    color: '#f5f5f5',
+  },
+  
    
-}))
+ }))
+
 
 
 export default useStyles;
