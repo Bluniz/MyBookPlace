@@ -1,7 +1,7 @@
 import {makeStyles} from '@material-ui/core/styles';
 
 
-const useStyles = makeStyles(()=>({
+const useStyles = makeStyles(() => ({
   root: {
     background: 'linear-gradient(to left, #122230 0%,#192d3e 100%)',
     display: 'flex',
@@ -9,16 +9,19 @@ const useStyles = makeStyles(()=>({
     justifyContent: 'space-between',
     width: '100vw',
   },
-  flex: {
+  container: {
     display: 'flex',
     flexDirection: 'column',
-    margin: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%'
     
   },
   titleContainer: {
     display: 'flex',
     alignItems: 'center',
     padding: 5,
+    marginTop: 10,
   },
   title: {
     textDecoration: 'none',
@@ -29,7 +32,16 @@ const useStyles = makeStyles(()=>({
   image: {
     width: '50px',
     height: '50px',
+  },
+  searchBar: {
+    width: '100vw'
+  },
+  titleHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
+ 
   
 }))
 

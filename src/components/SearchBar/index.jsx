@@ -1,77 +1,62 @@
 import React, {useState, useEffect} from 'react';
-import {TextField, Box} from '@material-ui/core';
+import {TextField, Box, IconButton} from '@material-ui/core';
 import useStyles from './style';
 import SearchIcon from '@material-ui/icons/Search';
 import {getBooks} from '../../service/booksService';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import booksActions from '../../actions/booksActions';
 
 const SearchBar = () =>  {
 
   const classes = useStyles();
-
   const [value, setValue] = useState('');
-
-  const [timer, setTimer] = useState(null);
-
   const dispatch = useDispatch();
+  const index = useSelector(state => state.books.index);
 
-  const index = 0;
+  function handleLoadBooks(event) {
+    if (value !== '') {
+      if (event?.key === 'Enter' || event?.type === 'click') {
+        dispatch(booksActions.resetIndex());
+        loadBook();
+      }
+   }
+  }
 
-
- 
-
-  function loadBooks(){
-    try{
+  function loadBook() {
+   try{
       getBooks(value, dispatch, index);
-     }catch(error){
+      }catch(error){
        console.log(error);
      }
   }
 
   useEffect(()=>{
     if(value !== ''){
-      loadBooks();
+      loadBook();
     }
   },[index])
 
   
-
-
    function handleChange(event){
-    clearTimeout(timer);
     setValue(event.target.value);
-   if(value !== '' && value.length > 1){
-    setTimer(setTimeout(()=>{
-        loadBooks();
-    }, 1000))
-       }
-
   }
 
 
   return(
     <Box className={classes.root}>
-
       <TextField
         className={classes.field}
         variant="outlined"
         value={value}
         onChange={(event)=>handleChange(event)}
         placeholder="Pesquise aqui um livro"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-      <SearchIcon />
-            </InputAdornment>
-          ),
-          className: classes.input,
-         
-        }}
+        onKeyPress={handleLoadBooks}
+        InputProps={{className: classes.input}}
       />
-
-      
+      <IconButton onClick={handleLoadBooks} className={classes.searchButton} component={Link} to="/search">
+              <SearchIcon />
+      </IconButton>
     </Box>
   )
 }

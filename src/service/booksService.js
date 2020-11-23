@@ -6,14 +6,16 @@ import loadingActions from '../actions/loadingActions';
 //&langRestrict=pt
 export function getBooks(term, dispatch, index) {
   dispatch(loadingActions.startLoading('searchList'));
-  return api.get(`/volumes?q=${term}&maxResults=10&startIndex=${index}&projection=full`).then(response=>{
-    if(response === undefined || response.data.totalItems === 0){
+  return api.get(`/volumes?q=${term}&maxResults=10&startIndex=${index}`).then(response=>{
+    if (response === undefined || response.data.totalItems === 0) {
       dispatch(bookActions.notFoundBooks(true))
+          dispatch(loadingActions.finishLoading('searchList'));
     } else {
       dispatch(bookActions.getBooks(response.data))
+          dispatch(loadingActions.finishLoading('searchList'));
+
     }
     
-    dispatch(loadingActions.finishLoading('searchList'));
   }).catch(error=> console.log(error))
 };
 

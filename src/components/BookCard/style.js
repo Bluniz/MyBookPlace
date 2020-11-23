@@ -1,7 +1,6 @@
-import {makeStyles} from '@material-ui/core/styles';
 
 
-const useStyles = makeStyles(()=>({
+const styles = {
   root:{
     width: '70%',
     display: 'flex',
@@ -11,15 +10,23 @@ const useStyles = makeStyles(()=>({
     color: '#122230',
     background: 'transparent',
     borderColor: '#122230',
+
   },
   container: {
     display: 'flex',
   },
 
+  buttonAndRatingContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    margin: 20,
+  },
+
   button: {
-     color: '#122230',
-    margin: 10,
+    color: '#122230',
     borderColor: '#122230',
+    marginTop: 10,
+    width: '40%',
 
      '&:hover': {
        background: '#122230',
@@ -37,8 +44,8 @@ const useStyles = makeStyles(()=>({
   subheader: {
     color: '#122230'
   }
-}))
+}
 
 
 
-export default useStyles;
+export default styles;

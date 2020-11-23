@@ -1,10 +1,13 @@
 import {makeStyles} from '@material-ui/core/styles';
 
-const useStyles = makeStyles(()=> ({
+const useStyles = makeStyles(() => ({
+  
+  
   container:{
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   
   margin: {
@@ -16,6 +19,13 @@ const useStyles = makeStyles(()=> ({
     margin: '10px',
     marginTop: '20px',
     fontWeight: 'bold',
+  },
+  authors: {
+    color: '#122230',
+    fontWeight: 'bold',
+    marginTop: '10px',
+    marginLeft: '10px',
+
   },
   
   card: {
@@ -43,7 +53,31 @@ const useStyles = makeStyles(()=> ({
        color: '#f5f5f5',
        borderColor: '#122230'
      }
-   },
+  },
+  
+  authorsName: {
+    display: 'flex',
+  },
+
+  ratingContainer: {
+    display: 'flex',
+    marginLeft: 10,
+    alignItems: 'center',
+  },
+
+  ratingText: {
+    fontWeight: 'bold',
+  },
+
+  rating: {
+    color: '#122230',
+    marginLeft: 10,
+  },
+
+  flex: {
+    display: 'flex',
+    flexDirection: 'column',
+  }
 
 }))
 
