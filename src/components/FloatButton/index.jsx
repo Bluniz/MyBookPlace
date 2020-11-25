@@ -1,10 +1,6 @@
-import React from 'react';
-import Fab from '@material-ui/core/Fab';
+import React from 'react'
+import Fab from '@material-ui/core/Fab'
 
+const FloatButton = ({ children, ...rest }) => <Fab {...rest}>{children}</Fab>
 
-
-const FloatButton = ({ children, ...rest }) => (<Fab {...rest}>{children}</Fab>)
-
-
-
-export default FloatButton;
+export default FloatButton
