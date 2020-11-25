@@ -1,65 +1,58 @@
-import React, {useState, useEffect} from 'react';
-import {TextField, Box, IconButton} from '@material-ui/core';
-import useStyles from './style';
-import SearchIcon from '@material-ui/icons/Search';
-import {getBooks} from '../../service/booksService';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import booksActions from '../../actions/booksActions';
+import React from 'react'
+import { TextField, Box, IconButton, Grid } from '@material-ui/core'
+import useStyles from './style'
+import SearchIcon from '@material-ui/icons/Search'
+import ToggleButton from '@material-ui/lab/ToggleButton'
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
-const SearchBar = () =>  {
+const SearchBar = ({ setTerm, handleSearch, orderTerm, handleChangeOrder }) => {
+    const classes = useStyles()
 
-  const classes = useStyles();
-  const [value, setValue] = useState('');
-  const dispatch = useDispatch();
-  const index = useSelector(state => state.books.index);
-
-  function handleLoadBooks(event) {
-    if (value !== '') {
-      if (event?.key === 'Enter' || event?.type === 'click') {
-        dispatch(booksActions.resetIndex());
-        loadBook();
-      }
-   }
-  }
-
-  function loadBook() {
-   try{
-      getBooks(value, dispatch, index);
-      }catch(error){
-       console.log(error);
-     }
-  }
-
-  useEffect(()=>{
-    if(value !== ''){
-      loadBook();
+    function handleChange(event) {
+        setTerm(event.target.value)
     }
-  },[index])
 
-  
-   function handleChange(event){
-    setValue(event.target.value);
-  }
-
-
-  return(
-    <Box className={classes.root}>
-      <TextField
-        className={classes.field}
-        variant="outlined"
-        value={value}
-        onChange={(event)=>handleChange(event)}
-        placeholder="Pesquise aqui um livro"
-        onKeyPress={handleLoadBooks}
-        InputProps={{className: classes.input}}
-      />
-      <IconButton onClick={handleLoadBooks} className={classes.searchButton} component={Link} to="/search">
-              <SearchIcon />
-      </IconButton>
-    </Box>
-  )
+    return (
+        <Box className={classes.root}>
+            <Grid container spacing={1} className={classes.barContainer}>
+                <Grid item md={12} sm={12} className={classes.barContainer}>
+                    <TextField
+                        className={classes.field}
+                        variant="outlined"
+                        onChange={(event) => handleChange(event)}
+                        placeholder="Pesquise aqui um livro"
+                        InputProps={{ className: classes.input }}
+                    />
+                    <IconButton
+                        onClick={handleSearch}
+                        className={classes.searchButton}
+                    >
+                        <SearchIcon />
+                    </IconButton>
+                </Grid>
+                <Grid item md={12} sm={12} className={classes.barContainer}>
+                    <ToggleButtonGroup
+                        value={orderTerm}
+                        exclusive
+                        onChange={handleChangeOrder}
+                    >
+                        <ToggleButton
+                            value="&orderBy=newest"
+                            className={classes.searchButton}
+                        >
+                            Mais novo
+                        </ToggleButton>
+                        <ToggleButton
+                            value="&orderBy=relevance"
+                            className={classes.searchButton}
+                        >
+                            Relevância
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                </Grid>
+            </Grid>
+        </Box>
+    )
 }
 
-
-export default SearchBar;
+export default SearchBar
