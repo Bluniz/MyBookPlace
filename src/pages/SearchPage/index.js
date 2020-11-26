@@ -58,18 +58,12 @@ const SearchPage = () => {
             />
 
             {index > 0 && books.length > 0 && (
-                <FloatButton
-                    onClick={prevPage}
-                    className={classes.floatButtonPrev}
-                >
+                <FloatButton onClick={prevPage} position="prev">
                     <NavigateBeforeIcon />
                 </FloatButton>
             )}
             {index <= 200 && books.length > 0 && (
-                <FloatButton
-                    onClick={nextPage}
-                    className={classes.floatButtonNext}
-                >
+                <FloatButton onClick={nextPage} position="next">
                     <NavigateNextIcon />
                 </FloatButton>
             )}

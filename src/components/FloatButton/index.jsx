@@ -1,6 +1,19 @@
 import React from 'react'
 import Fab from '@material-ui/core/Fab'
+import { withStyles } from '@material-ui/core/styles'
+import style from './style'
 
-const FloatButton = ({ children, ...rest }) => <Fab {...rest}>{children}</Fab>
+const FloatButton = ({ children, position, classes, ...rest }) => (
+    <Fab
+        {...rest}
+        className={
+            position === 'next'
+                ? classes.floatButtonNext
+                : classes.floatButtonPrev
+        }
+    >
+        {children}
+    </Fab>
+)
 
-export default FloatButton
+export default withStyles(style)(FloatButton)
