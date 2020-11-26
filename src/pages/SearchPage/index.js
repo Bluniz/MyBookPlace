@@ -22,6 +22,7 @@ const SearchPage = () => {
     const [orderTerm, setOrderTerm] = React.useState('')
     const dispatch = useDispatch()
 
+    console.log(books)
     function nextPage() {
         setIndex(index + 11)
     }

@@ -17,6 +17,7 @@ const BookDetails = ({
     description,
     rating,
     googleLink,
+    price,
 }) => {
     const classes = useStyles()
     return (
@@ -57,18 +58,17 @@ const BookDetails = ({
                     variant="body2"
                     color="textSecondary"
                 >
-                    {' '}
-                    {`Editora: ${
-                        publisher ? publisher : 'Não informada'
-                    }${`, publicado em ${
-                        publishedDate ? publishedDate : '????'
+                    {`Editora: ${publisher ? publisher : 'Não informada'}${`${
+                        publishedDate ? `, publicado em ${publishedDate}` : ''
                     }`}`}
                 </Text>
                 <Text
                     className={classes.margin}
                     variant="body2"
                     color="textSecondary"
-                >{`Quantidade de páginas: ${pageCount}`}</Text>
+                >
+                    {`Quantidade de páginas: ${pageCount}`}
+                </Text>
                 <div className={classes.flex}>
                     <div className={classes.ratingContainer}>
                         <Text
@@ -95,7 +95,7 @@ const BookDetails = ({
                         className={classes.button}
                         variant="outlined"
                     >
-                        Ver no google livros
+                        Comprar
                     </Button>
                 </div>
             </Grid>
