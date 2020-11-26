@@ -8,7 +8,6 @@ import noImage from '../../assets/no-image.jpg'
 import BookDetails from '../../components/bookDetails/index'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import useStyles from './style'
-import Header from '../../components/Header/index.jsx'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
 const BookDetailPage = () => {
@@ -28,8 +27,6 @@ const BookDetailPage = () => {
 
     return (
         <div className={classes.container}>
-            <Header />
-
             <Box className={classes.root}>
                 <Container maxWidth="lg">
                     <IconButton

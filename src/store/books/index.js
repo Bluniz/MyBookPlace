@@ -1,10 +1,4 @@
-import {
-    GET_BOOKS,
-    NOT_FOUND,
-    PLUS_INDEX,
-    RESET_INDEX,
-    MINUS_INDEX,
-} from '../../helper/Constants'
+import { GET_BOOKS, NOT_FOUND } from '../../helper/Constants'
 
 const INITIAL_STATE = {
     books: [],
@@ -19,16 +13,6 @@ export default function reducer(state = INITIAL_STATE, action = null) {
 
         case NOT_FOUND:
             return { books: [], notFound: action.payload }
-
-        case PLUS_INDEX:
-            return { ...state, index: state.index + 11 }
-
-        case MINUS_INDEX: {
-            return { ...state, index: state.index - 11 }
-        }
-
-        case RESET_INDEX:
-            return { ...state, index: 0 }
 
         default:
             return state

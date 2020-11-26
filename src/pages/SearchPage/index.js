@@ -6,7 +6,6 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
 import BookCard from '../../components/BookCard/index.jsx'
 import noImage from '../../assets/no-image.jpg'
-import Header from '../../components/Header/index.jsx'
 import SearchBar from '../../components/SearchBar/index.jsx'
 import useStyles from './style'
 import FloatButton from '../../components/FloatButton/index.jsx'
@@ -47,7 +46,6 @@ const SearchPage = () => {
 
     return (
         <Box className={classes.root}>
-            <Header />
             <SearchBar
                 setTerm={setTerm}
                 handleSearch={handleGetBooks}
