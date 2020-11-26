@@ -9,8 +9,6 @@ const Header = () => {
     const classes = useStyles()
     const { pathname } = useLocation()
 
-    console.log(pathname)
-
     return (
         <>
             {pathname !== '/' && (

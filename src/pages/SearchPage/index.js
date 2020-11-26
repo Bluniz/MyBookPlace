@@ -10,6 +10,7 @@ import SearchBar from '../../components/SearchBar/index.jsx'
 import useStyles from './style'
 import FloatButton from '../../components/FloatButton/index.jsx'
 import { getBooks } from '../../service/booksService'
+import booksActions from '../../actions/booksActions'
 
 const SearchPage = () => {
     const classes = useStyles()
@@ -41,6 +42,8 @@ const SearchPage = () => {
     useEffect(() => {
         if (term !== '') {
             getBooks(term, dispatch, index, orderTerm ? orderTerm : '')
+        } else {
+            dispatch(booksActions.resetBooks())
         }
     }, [index, orderTerm])
 

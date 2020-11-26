@@ -1,9 +1,8 @@
-import { GET_BOOKS, NOT_FOUND } from '../../helper/Constants'
+import { GET_BOOKS, NOT_FOUND, RESET_BOOKS } from '../../helper/Constants'
 
 const INITIAL_STATE = {
     books: [],
     notFound: null,
-    index: 0,
 }
 
 export default function reducer(state = INITIAL_STATE, action = null) {
@@ -13,6 +12,9 @@ export default function reducer(state = INITIAL_STATE, action = null) {
 
         case NOT_FOUND:
             return { books: [], notFound: action.payload }
+
+        case RESET_BOOKS:
+            return { books: [] }
 
         default:
             return state

@@ -1,4 +1,4 @@
-import { GET_BOOKS, NOT_FOUND } from '../helper/Constants'
+import { GET_BOOKS, NOT_FOUND, RESET_BOOKS } from '../helper/Constants'
 
 export const getBooks = (payload) => (dispatch) => {
     return dispatch({
@@ -14,7 +14,14 @@ export const notFoundBooks = (payload) => (dispatch) => {
     })
 }
 
+export const resetBooks = () => (dispatch) => {
+    return dispatch({
+        type: RESET_BOOKS,
+        payload: null,
+    })
+}
 export default {
     getBooks,
     notFoundBooks,
+    resetBooks,
 }
