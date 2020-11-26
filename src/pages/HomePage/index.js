@@ -11,10 +11,10 @@ const HomePage = () => {
 
     return (
         <Grid container className={classes.root}>
-            <Grid item sm={3} md={3}>
+            <Grid item sm={6} md={3}>
                 <img className={classes.img} src={logo} alt="logo" />
             </Grid>
-            <Grid item sm={5} md={5}>
+            <Grid item sm={4} md={4}>
                 <Grid container>
                     <Grid item sm={12} md={12}>
                         <Text variant="h2">MyBookPlace</Text>
