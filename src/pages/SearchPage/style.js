@@ -11,10 +11,7 @@ const useStyles = makeStyles(() => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    spinner: {
-        marginTop: '20vh',
-        color: '#122230',
-    },
+
     alert: {
         marginTop: '20vh',
         minWidth: '40vw',

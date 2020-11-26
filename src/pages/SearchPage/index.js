@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Alert from '@material-ui/lab/Alert'
-import { CircularProgress, Box } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
-import BookCard from '../../components/BookCard/index.jsx'
-import noImage from '../../assets/no-image.jpg'
 import SearchBar from '../../components/SearchBar/index.jsx'
 import useStyles from './style'
 import FloatButton from '../../components/FloatButton/index.jsx'
 import { getBooks } from '../../service/booksService'
 import booksActions from '../../actions/booksActions'
+import Spinner from '../../components/Spinner/index.jsx'
+import BookList from '../../components/BookList/index.jsx'
 
 const SearchPage = () => {
     const classes = useStyles()
@@ -22,7 +22,6 @@ const SearchPage = () => {
     const [orderTerm, setOrderTerm] = React.useState('')
     const dispatch = useDispatch()
 
-    console.log(books)
     function nextPage() {
         setIndex(index + 11)
     }
@@ -69,26 +68,7 @@ const SearchPage = () => {
             )}
 
             <div className={classes.bookList}>
-                {searchList ? (
-                    <CircularProgress className={classes.spinner} />
-                ) : (
-                    <>
-                        {books.map((book) => (
-                            <BookCard
-                                key={`${book.id} ${book.etag}`}
-                                title={book.volumeInfo.title}
-                                image={
-                                    book.volumeInfo.imageLinks
-                                        ? book.volumeInfo.imageLinks.thumbnail
-                                        : noImage
-                                }
-                                bookId={book.id}
-                                subtitle={book.volumeInfo.subtitle}
-                                rating={book.volumeInfo?.averageRating}
-                            />
-                        ))}
-                    </>
-                )}
+                {searchList ? <Spinner /> : <BookList books={books} />}
 
                 {notFound && !searchList && (
                     <Alert severity="error" className={classes.alert}>

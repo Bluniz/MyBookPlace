@@ -17,7 +17,6 @@ const BookDetails = ({
     description,
     rating,
     googleLink,
-    price,
 }) => {
     const classes = useStyles()
     return (
