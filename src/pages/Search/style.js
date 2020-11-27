@@ -6,7 +6,6 @@ const useStyles = makeStyles(() => ({
         background: '#f5f5f5',
     },
     bookList: {
-        background: '#f5f5f5',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -18,6 +17,7 @@ const useStyles = makeStyles(() => ({
         maxWith: '80vw',
         background: '#122230',
         color: '#f5f5f5',
+        margin: 10,
     },
 }))
 
