@@ -6,7 +6,7 @@ import useStyles from './style'
 import logo from '../../assets/estante.svg'
 import Text from '../../components/Text/index'
 
-const HomePage = () => {
+const Home = () => {
     const classes = useStyles()
 
     return (
@@ -18,9 +18,7 @@ const HomePage = () => {
                 <Grid container>
                     <Grid item sm={12} md={12}>
                         <Text variant="h2">MyBookPlace</Text>
-                        <Text variant="subtitle2">
-                            Pesquise e favorite seus livros :D
-                        </Text>
+                        <Text variant="subtitle2">Pesquise seus livros :D</Text>
                         <Grid item sm={3} md={3}>
                             <Button
                                 className={classes.buttonSearch}
@@ -39,4 +37,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default Home

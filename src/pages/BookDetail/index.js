@@ -10,7 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import useStyles from './style'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
-const BookDetailPage = () => {
+const BookDetail = () => {
     const classes = useStyles()
     const { id } = useParams()
     const { book } = useSelector((state) => state.book)
@@ -71,4 +71,4 @@ const BookDetailPage = () => {
     )
 }
 
-export default BookDetailPage
+export default BookDetail

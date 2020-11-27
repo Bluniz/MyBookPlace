@@ -12,7 +12,7 @@ import booksActions from '../../actions/booksActions'
 import Spinner from '../../components/Spinner/index.jsx'
 import BookList from '../../components/BookList/index.jsx'
 
-const SearchPage = () => {
+const Search = () => {
     const classes = useStyles()
     const { books, notFound } = useSelector((state) => state.books)
     const { searchList } = useSelector((state) => state.loading)
@@ -87,4 +87,4 @@ const SearchPage = () => {
     )
 }
 
-export default SearchPage
+export default Search
