@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+<h1>MyBookPlace</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+<image src=".github/images/responsive-showcase-mockup.jpg"/></br>
+</p>
 
-## Available Scripts
+<p align="center">
+ <a href="https://mybookplace.netlify.app/" target="_blank" rel="noopenner noreferrer"> Deploy na Netlify
+ </a>
+</p>
 
-In the project directory, you can run:
+<p align="center">
+<image src="https://img.shields.io/github/license/Bluniz/My-Book-Place?style=for-the-badge"/>
+<image src="https://img.shields.io/netlify/27a174b1-9fa9-4e3e-83d9-4abf8c248290?style=for-the-badge"/>
+</p>
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Apresentação do projeto 🌟
 
-### `yarn test`
+<p align="center">
+<image src=".github/images/MyBookPlace.gif" />
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `yarn build`
+## Sobre 📝
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Este projeto foi construído durante o processo seletivo (Talent Sprint) da empresa Solutis em novembro de 2020.<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Meus desafios 🔥
+O principal desafio para mim foi utilizar o Redux como gerenciamento de estado, até então eu apenas sabia utilizar a ContextAPI.<br/>
+Gostaria de falar que achei muito organizado e muito melhor de se trabalhar em uma aplicação que escala em proporções maiores, as aulas do professor Irlan ajudaram bastante a entender todo o processo.
 
-### `yarn eject`
+## Ideia inicial 💡
+Fazer uma aplicação de pesquisas de livro que você possa ver os detalhes de um quando pesquisado e possa favoritar.
+Pretendia utilizar 100% da API com autenticação do google ou um sistema independente com localStorage, infelizmente não pude aplicar os mesmo. Estas funcionalidades ficaram em pauta para futuras atualizações deste projeto.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## De onde veio o nome  do MyBookPlace?📚
+A nome deste projeto vem da frase "Meu lugar dos livros" que em inglês fica "My place of Books" e resumidamente "MyBookPlace".<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## O que a aplicação faz?🎮
+Basicamente ela pesquisa livros através da API Google Books, consiste em uma pesquisa normal com opções de filtro por "Mais novo" ou "Relevância", uma tela de visualização dos dados
+e um botão "Comprar" que te guia até a página de compra no google books.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Quantas rotas possui?🛣
+Atualmente possui 3 rotas e um tratamento de rro, sendo elas:
+<ul>
+  <li> /home -> Tela Inicial com a logo da aplicação
+  <li> /search -> Tela de pesquisa com a filtragem e paginação
+  </li>
+  <li> /book/:id do livro -> Detalhes de um livro especifico
+  </li>
+  <li> /* -> Caso o usuário digite alguma rota que não existe na aplicação, irá ir direto para uma pagina 404
+  </li>
+</ul>
 
-### Code Splitting
+## Redux - Quantas stores?
+Atualmente possuimos 3 stores diferentes sendo elas:
+<ul>
+<li> Books -> Store destinada as pesquisas de livros
+</li>
+<li> Book -> Store destinada a um livro em especifico
+</li>
+<li> loading -> Store destinada a controlar TODOS os loadings da aplicação, podendo controlar loadings especificos de todas as paginas
+</li>
+</ul>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Coisas que acho muito legal em minha aplicação
+<ul>
+<li> Store de Loading dinâmica, ela pode controlar os loadings tanto de páginas quanto componentes, sua aplicação pode crescer bastante futuramente então creio que essa é uma solução que sirva pra diversos casos. <br/>
+Resumidamente, utilizando recursos do ES6 eu posso fazer uma ação de iniciar e finalizar loading que receba apenas o nome da pagina ou componente que eu deseja modificar seu loading.
+<img src=".github/images/loading_store.png" alt="loading"/>
+</li>
+<li> Minha função de formatar datas utilizando o formatador nativo do Javascript. Basicamente
+o new Date("alguma data aqui") retorna a uma data no formato definido pelo teu navegador ou html. Tu pode alterar o formato desta data, para ser dd/mm/yy e também alterar a localidade, assim ela irá traduzir para o que tu quer. <br/>
+Utilizando o .toLocaleDateString tu converte sua string para a localidade que tu quer(neste caso "pt-br") e pode passar como parametro o formato que tu quer que seja a resposta, neste caso eu defini o dia como um Numerico(retorno de numero), o mês como um long ou seja retornar o nome do mês e o ano numerico para retornar seu ano numero. Um exemplo de retorno seria: "10 de setembro de 2020"
+<img src=".github/images/format_date.png" alt="loading"/>
+</li>
+</ul>
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Tecnologias 🚀
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- <a href="https://pt-br.reactjs.org/">ReactJs</a>
+- <a href="https://material-ui.com/pt/">Material Ui</a>
+- <a href="https://github.com/axios/axios">Axios</a>
+- <a href="https://redux.js.org/">Redux</a>
+- <a href="https://eslint.org/">Eslint</a>
+- <a href="https://prettier.io/">Prettier</a>
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Ô Lucas, seu readme não está mt grande não?
+Sim cara, está grande mesmo. Porém para além do processo seletivo do qual estou participando eu estou utilizando esta aplicação como estudo. Portanto pretendo falar detalhes, coisas que eu acho legal e tudo mais.
+## Como contribuir 🤔
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Fork este repositório;
+- Cria uma branch com sua feature(Funcionalidade): `git checkout -b my-feature`;
+- Commite suas mudanças: `git commit -m 'feat: my new feature'`;
+- Realize um Push para sua branch: `git push origin my-feature`.
 
-### `yarn build` fails to minify
+## License 📃
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> This project is under the MIT license. See the archive [LICENSE](LICENSE) for more details.
+
+---
+
+##### Made by Lucas Rosa(@Bluniz) 🌊
