@@ -14,24 +14,18 @@ const Home = () => {
             <Grid item sm={6} md={3}>
                 <img className={classes.img} src={logo} alt="logo" />
             </Grid>
-            <Grid item sm={4} md={4}>
-                <Grid container>
-                    <Grid item sm={12} md={12}>
-                        <Text variant="h2">MyBookPlace</Text>
-                        <Text variant="subtitle2">Pesquise seus livros :D</Text>
-                        <Grid item sm={3} md={3}>
-                            <Button
-                                className={classes.buttonSearch}
-                                component={Link}
-                                to="/search"
-                                variant="outlined"
-                            >
-                                <SearchIcon />
-                                Pesquisar
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </Grid>
+            <Grid item sm={5} md={4}>
+                <Text variant="h2">MyBookPlace</Text>
+                <Text variant="subtitle2">Pesquise seus livros :D</Text>
+                <Button
+                    className={classes.buttonSearch}
+                    component={Link}
+                    to="/search"
+                    variant="outlined"
+                >
+                    <SearchIcon />
+                    Pesquisar
+                </Button>
             </Grid>
         </Grid>
     )
