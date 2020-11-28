@@ -1,15 +1,17 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import SearchPage from './pages/SearchPage'
-import BookDetailPage from './pages/BookDetailPage'
-import HomePage from './pages/HomePage/index'
+import Search from './pages/Search'
+import BookDetail from './pages/BookDetail/index'
+import Home from './pages/Home/index'
+import NotFound from './pages/NotFound'
 
 const Routes = () => {
     return (
         <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/search" component={SearchPage} />
-            <Route exact path="/book/:id" component={BookDetailPage} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/book/:id" component={BookDetail} />
+            <Route exact path="/*" component={NotFound} />
         </Switch>
     )
 }
