@@ -92,6 +92,7 @@ Utilizando o .toLocaleDateString tu converte sua string para a localidade que tu
 - <a href="https://material-ui.com/pt/">Material Ui</a>
 - <a href="https://github.com/axios/axios">Axios</a>
 - <a href="https://redux.js.org/">Redux</a>
+- <a href="https://reactrouter.com/">React-router-dom</a>
 - <a href="https://eslint.org/">Eslint</a>
 - <a href="https://prettier.io/">Prettier</a>
 
