@@ -5,8 +5,6 @@ import SearchIcon from '@material-ui/icons/Search'
 
 import { FilterButtonGroup } from './FilterButtonGroup.jsx'
 
-import { debounce } from '../../utils/utils'
-
 //! Irei utilizar Prop driling com os botões de filtro, porém essa situação ja é passiva de context ou Redux.
 
 const SearchBar = ({ setTerm, handleSearch, orderTerm, handleChangeOrder }) => {
