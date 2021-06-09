@@ -3,7 +3,6 @@ import { getBook } from '../../service/booksService'
 import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Container, Box, IconButton } from '@material-ui/core'
-import { formatDate } from '../../utils/utils'
 import noImage from '../../assets/no-image.jpg'
 import BookDetails from '../../components/bookDetails/index.jsx'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -51,9 +50,7 @@ const BookDetail = () => {
                             authors={book.authors}
                             publisher={book?.publisher}
                             publishedDate={
-                                book.publishedDate
-                                    ? formatDate(book.publishedDate)
-                                    : ''
+                                book.publishedDate ? book.publishedDate : ''
                             }
                             pageCount={book.printedPageCount}
                             description={
