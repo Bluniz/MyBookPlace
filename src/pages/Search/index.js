@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense, lazy } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Alert from '@material-ui/lab/Alert'
 import { Box } from '@material-ui/core'
@@ -10,7 +10,8 @@ import FloatButton from '../../components/FloatButton/index.jsx'
 import { getBooks } from '../../service/booksService'
 import booksActions from '../../actions/booksActions'
 import Spinner from '../../components/Spinner/index.jsx'
-import BookList from '../../components/BookList/index.jsx'
+
+const BookList = lazy(() => import('../../components/BookList/index.jsx'))
 
 const Search = () => {
     const classes = useStyles()
@@ -19,7 +20,7 @@ const Search = () => {
 
     const [term, setTerm] = useState('')
     const [index, setIndex] = useState(0)
-    const [orderTerm, setOrderTerm] = React.useState('')
+    const [orderTerm, setOrderTerm] = useState('')
     const dispatch = useDispatch()
 
     function nextPage() {
@@ -31,7 +32,7 @@ const Search = () => {
     }
 
     function handleChangeOrderTerm(event, newFilterName) {
-        setOrderTerm(newFilterName ? newFilterName : '')
+        setOrderTerm(newFilterName)
     }
 
     function handleGetBooks() {
@@ -68,7 +69,13 @@ const Search = () => {
             )}
 
             <div className={classes.bookList}>
-                {searchList ? <Spinner /> : <BookList books={books} />}
+                {searchList ? (
+                    <Spinner />
+                ) : (
+                    <Suspense fallback={<div>carregando...</div>}>
+                        <BookList books={books} />
+                    </Suspense>
+                )}
 
                 {notFound && !searchList && (
                     <Alert severity="error" className={classes.alert}>
