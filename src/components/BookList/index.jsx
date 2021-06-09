@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import BookCard from '../BookCard/index.jsx'
 import noImage from '../../assets/no-image.jpg'
 
-const BookList = ({ books }) => {
+const BookListComponent = ({ books }) => {
     return (
         <>
             {books.map((book) => {
@@ -24,5 +24,10 @@ const BookList = ({ books }) => {
         </>
     )
 }
+
+//! Apenas re-renderiza se os livros mudarem
+const BookList = memo(BookListComponent, (prevProps, nextProps) => {
+    return Object.is(prevProps.books, nextProps.books)
+})
 
 export default BookList

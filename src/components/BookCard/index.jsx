@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styles from './style.js'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
@@ -10,7 +10,14 @@ import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 import AverageRating from '../AverageRating/index.jsx'
 
-const BookCard = ({ title, image, bookId, subtitle, classes, rating }) => {
+const BookCardComponent = ({
+    title,
+    image,
+    bookId,
+    subtitle,
+    classes,
+    rating,
+}) => {
     return (
         <Card variant="outlined" className={classes.root}>
             <CardActionArea className={classes.container}>
@@ -55,4 +62,12 @@ const BookCard = ({ title, image, bookId, subtitle, classes, rating }) => {
     )
 }
 
-export default withStyles(styles)(BookCard)
+//! Apenas re-renderiza se as propriedades do componente mudarem.
+const BookCard = memo(
+    withStyles(styles)(BookCardComponent),
+    (prevProps, nextProps) => {
+        return Object.is(prevProps, nextProps)
+    }
+)
+
+export default BookCard
