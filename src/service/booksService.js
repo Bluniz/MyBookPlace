@@ -2,6 +2,7 @@ import api from './api'
 import bookActions from '../actions/booksActions'
 import bookAction from '../actions/bookActions'
 import loadingActions from '../actions/loadingActions'
+import { formatDate } from '../utils/utils'
 
 //&langRestrict=pt
 export function getBooks(term, dispatch, index, order) {
@@ -27,7 +28,14 @@ export function getBook(id, dispatch) {
         .get(`/volumes/${id}?projection=full`)
         .then((response) => {
             if (response) {
-                dispatch(bookAction.getBook(response.data.volumeInfo))
+                dispatch(
+                    bookAction.getBook({
+                        ...response.data.volumeInfo,
+                        publishedDate: formatDate(
+                            response.data.volumeInfo.publishedDate
+                        ),
+                    })
+                )
             }
         })
         .catch((error) => console.log(error))
