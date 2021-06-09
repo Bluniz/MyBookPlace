@@ -1,9 +1,13 @@
 import React from 'react'
-import { TextField, Box, IconButton, Grid, Tooltip } from '@material-ui/core'
+import { TextField, Box, IconButton, Grid } from '@material-ui/core'
 import useStyles from './style'
 import SearchIcon from '@material-ui/icons/Search'
-import ToggleButton from '@material-ui/lab/ToggleButton'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
+
+import { FilterButtonGroup } from './FilterButtonGroup.jsx'
+
+import { debounce } from '../../utils/utils'
+
+//! Irei utilizar Prop driling com os botões de filtro, porém essa situação ja é passiva de context ou Redux.
 
 const SearchBar = ({ setTerm, handleSearch, orderTerm, handleChangeOrder }) => {
     const classes = useStyles()
@@ -31,26 +35,10 @@ const SearchBar = ({ setTerm, handleSearch, orderTerm, handleChangeOrder }) => {
                     </IconButton>
                 </Grid>
                 <Grid item md={12} sm={12} className={classes.barContainer}>
-                    <Tooltip title="Ordenar por">
-                        <ToggleButtonGroup
-                            value={orderTerm}
-                            exclusive
-                            onChange={handleChangeOrder}
-                        >
-                            <ToggleButton
-                                value="&orderBy=newest"
-                                className={classes.searchButton}
-                            >
-                                Mais novo
-                            </ToggleButton>
-                            <ToggleButton
-                                value="&orderBy=relevance"
-                                className={classes.searchButton}
-                            >
-                                Relevância
-                            </ToggleButton>
-                        </ToggleButtonGroup>
-                    </Tooltip>
+                    <FilterButtonGroup
+                        orderTerm={orderTerm}
+                        handleChangeOrder={handleChangeOrder}
+                    />
                 </Grid>
             </Grid>
         </Box>
