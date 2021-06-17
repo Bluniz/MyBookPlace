@@ -5,7 +5,9 @@ import useStyles from './style'
 const Spinner = () => {
     const classes = useStyles()
 
-    return <CircularProgress className={classes.spinner} />
+    return (
+        <CircularProgress className={classes.spinner} data-testid="spinner" />
+    )
 }
 
 export default Spinner
