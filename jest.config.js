@@ -6,6 +6,7 @@ module.exports = {
     //? Para arquivos com ts, converta de forma que o jest entenda.
     transform: {
         '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
+        '^.+\\.svg$': '<rootDir>/src/tests/svgTransform.js',
     },
     //? Em que ambiente nossos testes estão executando
     testEnvironment: 'jsdom',

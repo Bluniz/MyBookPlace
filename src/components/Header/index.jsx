@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from '@material-ui/core'
 import useStyles from './style.js'
-import Text from '../Text/index.js'
+import Text from '../Text/index'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/estante.svg'
 
@@ -19,7 +19,7 @@ const Header = () => {
                                 src={logo}
                                 alt="logo"
                                 className={classes.image}
-                            />
+                            />{' '}
                             <Text
                                 component={Link}
                                 to="/"
