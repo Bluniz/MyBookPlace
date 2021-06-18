@@ -3,7 +3,12 @@ import Fab from '@material-ui/core/Fab'
 import { withStyles } from '@material-ui/core/styles'
 import style from './style'
 
-const FloatButton = ({ children, position, classes, ...rest }) => (
+const FloatButton = ({
+    children,
+    position,
+    classes = classes.floatButtonNext,
+    ...rest
+}) => (
     <Fab
         {...rest}
         className={
