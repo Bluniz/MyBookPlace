@@ -1,8 +1,8 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import BookCard from '.'
-import { Router } from 'react-router-dom'
-import { createMemoryHistory } from 'history'
+
+import { rendersWithRouter } from '../../utils/utils'
 
 const mockedClasses = {
     root: '',
@@ -25,19 +25,15 @@ const mockedBook = {
 
 describe('BookCard Component', () => {
     it('renders correctly', () => {
-        const history = createMemoryHistory()
-
-        render(
-            <Router history={history}>
-                <BookCard
-                    bookId={mockedBook.id}
-                    title={mockedBook.title}
-                    subtitle={mockedBook.subtitle}
-                    rating={mockedBook.rating}
-                    image={mockedBook.image}
-                    classes={mockedBook.classes}
-                />
-            </Router>
+        rendersWithRouter(
+            <BookCard
+                bookId={mockedBook.id}
+                title={mockedBook.title}
+                subtitle={mockedBook.subtitle}
+                rating={mockedBook.rating}
+                image={mockedBook.image}
+                classes={mockedBook.classes}
+            />
         )
 
         expect(screen.getByText('Meu Livro')).toBeInTheDocument()
