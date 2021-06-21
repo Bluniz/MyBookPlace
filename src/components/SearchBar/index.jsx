@@ -5,12 +5,13 @@ import SearchIcon from '@material-ui/icons/Search'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
-const SearchBar = ({ setTerm, handleSearch, orderTerm, handleChangeOrder }) => {
+const SearchBar = ({
+    handleChange,
+    handleSearch,
+    orderTerm,
+    handleChangeOrder,
+}) => {
     const classes = useStyles()
-
-    function handleChange(event) {
-        setTerm(event.target.value)
-    }
 
     return (
         <Box className={classes.root}>
@@ -26,6 +27,7 @@ const SearchBar = ({ setTerm, handleSearch, orderTerm, handleChangeOrder }) => {
                     <IconButton
                         onClick={handleSearch}
                         className={classes.searchButton}
+                        data-testid="icon-button"
                     >
                         <SearchIcon />
                     </IconButton>

@@ -39,6 +39,10 @@ const Search = () => {
         getBooks(term, dispatch, index, orderTerm)
     }
 
+    function handleChange(event) {
+        setTerm(event.target.value)
+    }
+
     useEffect(() => {
         if (term !== '') {
             getBooks(term, dispatch, index, orderTerm ? orderTerm : '')
@@ -50,7 +54,7 @@ const Search = () => {
     return (
         <Box className={classes.root}>
             <SearchBar
-                setTerm={setTerm}
+                setTerm={handleChange}
                 handleSearch={handleGetBooks}
                 orderTerm={orderTerm}
                 handleChangeOrder={handleChangeOrderTerm}
