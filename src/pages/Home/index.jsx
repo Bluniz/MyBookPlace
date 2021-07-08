@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search'
 import useStyles from './style'
 import logo from '../../assets/estante.svg'
-import Text from '../../components/Text/index'
+import { Text } from '../../components/Text/index.jsx'
 
 const Home = () => {
     const classes = useStyles()

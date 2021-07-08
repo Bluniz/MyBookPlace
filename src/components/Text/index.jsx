@@ -1,15 +1,15 @@
 import {
-    createMuiTheme,
+    createTheme,
     responsiveFontSizes,
     ThemeProvider,
 } from '@material-ui/core/styles'
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 
-let theme = createMuiTheme()
+let theme = createTheme()
 theme = responsiveFontSizes(theme)
 
-const Text = ({ variant, children, ...rest }) => (
+export const Text = ({ variant, children, ...rest }) => (
     <>
         <ThemeProvider theme={theme}>
             <Typography variant={variant} {...rest}>
@@ -18,5 +18,3 @@ const Text = ({ variant, children, ...rest }) => (
         </ThemeProvider>
     </>
 )
-
-export default Text

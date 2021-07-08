@@ -13,6 +13,7 @@ export function getBooks(term, dispatch, index, order) {
                 dispatch(bookActions.notFoundBooks(true))
             } else {
                 dispatch(bookActions.getBooks(response.data))
+                console.log(response.data)
             }
         })
         .catch((error) => console.log(error))

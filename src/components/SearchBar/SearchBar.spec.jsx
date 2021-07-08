@@ -32,7 +32,7 @@ describe('Search Bar Component', () => {
             <SearchBar
                 handleSearch={mockHandleSearch}
                 handleChangeOrder={mockHandleChangeOrder}
-                handleChange={mockHandleChange}
+                setTerm={mockHandleChange}
             />
         )
 

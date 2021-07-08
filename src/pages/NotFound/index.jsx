@@ -1,6 +1,6 @@
 import React from 'react'
 import notFoundIcon from '../../assets/404.svg'
-import Text from '../../components/Text/index'
+import { Text } from '../../components/Text/index.jsx'
 import './style.css'
 
 const NotFound = () => (

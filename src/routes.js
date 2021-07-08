@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Search from './pages/Search'
-import BookDetail from './pages/BookDetail/index'
-import Home from './pages/Home/index'
-import NotFound from './pages/NotFound'
+import Search from './pages/Search/index.jsx'
+import BookDetail from './pages/BookDetail/index.jsx'
+import Home from './pages/Home/index.jsx'
+import NotFound from './pages/NotFound/index.jsx'
 
 const Routes = () => {
     return (

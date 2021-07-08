@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box } from '@material-ui/core'
 import useStyles from './style.js'
-import Text from '../Text/index'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/estante.svg'
+import { Text } from '../Text/index.jsx'
 
 const Header = () => {
     const classes = useStyles()

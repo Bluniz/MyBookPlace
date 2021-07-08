@@ -5,12 +5,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
-const SearchBar = ({
-    handleChange,
-    handleSearch,
-    orderTerm,
-    handleChangeOrder,
-}) => {
+const SearchBar = ({ setTerm, handleSearch, orderTerm, handleChangeOrder }) => {
     const classes = useStyles()
 
     return (
@@ -20,7 +15,7 @@ const SearchBar = ({
                     <TextField
                         className={classes.field}
                         variant="outlined"
-                        onChange={(event) => handleChange(event)}
+                        onChange={(event) => setTerm(event)}
                         placeholder="Pesquise aqui um livro"
                         InputProps={{ className: classes.input }}
                     />

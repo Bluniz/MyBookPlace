@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Card, CardContent } from '@material-ui/core'
-import Text from '../Text/index'
+import { Text } from '../Text/index'
 import useStyles from './style'
 import Button from '../Button/index.jsx'
 import AverageRating from '../AverageRating/index.jsx'
