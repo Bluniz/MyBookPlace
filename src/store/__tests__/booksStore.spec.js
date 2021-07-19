@@ -1,8 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import thunk from 'redux-thunk'
-import axiosMock from '../../__mocks__/axios-mock'
 import booksStore from '../books/index'
-import { bookBuilder } from '../../__mocks__/book-builder'
+import { bookBuilder } from '../../__mocks__/books-builder'
 import { bookStateBuilder } from '../../__mocks__/booksStateBuilder'
 import booksActions from '../../actions/booksActions'
 

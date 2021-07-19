@@ -25,6 +25,8 @@ const BookDetail = () => {
         history.goBack()
     }
 
+    console.log(book)
+
     return (
         <div className={classes.container}>
             <Box className={classes.root}>

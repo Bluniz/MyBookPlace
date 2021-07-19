@@ -1,4 +1,4 @@
-import { bookBuilder } from './book-builder'
+import { bookBuilder } from './books-builder'
 
 export const bookStateBuilder = (props = {}) => {
     const defaultBooks = [
