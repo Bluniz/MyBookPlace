@@ -13,5 +13,8 @@ export const bookBuilder = (title = 'Javascript') => {
         publishedDate: '2013-08-02',
         publisher: 'Novatec Editora',
         pageCount: 0,
+        volumeInfo: {
+            title: 'test',
+        },
     }
 }

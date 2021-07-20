@@ -33,6 +33,7 @@ const SearchBar = ({ setTerm, handleSearch, orderTerm, handleChangeOrder }) => {
                             value={orderTerm}
                             exclusive
                             onChange={handleChangeOrder}
+                            data-testid="group"
                         >
                             <ToggleButton
                                 value="&orderBy=newest"

@@ -61,12 +61,20 @@ const Search = () => {
             />
 
             {index > 0 && books.length > 0 && (
-                <FloatButton onClick={prevPage} position="prev">
+                <FloatButton
+                    onClick={prevPage}
+                    position="prev"
+                    data-testid="prev"
+                >
                     <NavigateBeforeIcon />
                 </FloatButton>
             )}
             {index <= 200 && books.length > 0 && (
-                <FloatButton onClick={nextPage} position="next">
+                <FloatButton
+                    onClick={nextPage}
+                    position="next"
+                    data-testid="next"
+                >
                     <NavigateNextIcon />
                 </FloatButton>
             )}

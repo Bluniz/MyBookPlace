@@ -1,4 +1,8 @@
-export const bookBuilder = (title = 'JavaScript Remoto') => {
+export const bookBuilder = (
+    title = 'JavaScript Remoto',
+    id = 0,
+    thumb = false
+) => {
     return {
         items: [
             {
@@ -79,5 +83,15 @@ export const bookBuilder = (title = 'JavaScript Remoto') => {
         ],
         kind: 'books#volumes',
         totalItems: 10,
+        volumeInfo: {
+            title: title,
+            subtitle: title,
+            imageLinks: {
+                thumbnail: thumb ? '' : null,
+            },
+            averageRating: 4.5,
+        },
+        id,
+        etag: '',
     }
 }

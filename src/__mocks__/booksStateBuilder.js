@@ -1,14 +1,14 @@
 import { bookBuilder } from './books-builder'
 
-export const bookStateBuilder = (props = {}) => {
+export const bookStateBuilder = (notFound = false) => {
     const defaultBooks = [
-        bookBuilder(),
-        bookBuilder('React'),
-        bookBuilder('test'),
+        bookBuilder('testando', 0),
+        bookBuilder('React', 1, true),
+        bookBuilder('test', 2),
     ]
 
     return {
         books: defaultBooks,
-        notFound: false,
+        notFound,
     }
 }
